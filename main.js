@@ -9,7 +9,15 @@ console.log("Hi There!");
     - Display winner
 */
 
-
+/**
+ * getHumanChoice
+ * 
+ * - Prompts user to enter their choice
+ * - Validates user input
+ * - Returns user input
+ * 
+ * @returns {string} humanChoice
+ */ 
 const getHumanChoice = () => {
     let humanChoice = prompt('Rock, Paper, or Scissors?');
 
@@ -36,6 +44,15 @@ const getHumanChoice = () => {
     return humanChoice;
 }
 
+/**
+ * getComputerChoice
+ * 
+ * - Generates a random number
+ * - Assigns a choice based on the random number
+ * - Returns the computer choice
+ *  
+ * @returns {string} computerChoice
+ * */
 const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
@@ -44,71 +61,92 @@ const getComputerChoice = () => {
     return choices[randomNumber];
 }
 
+
+/**
+ * determineWinner
+ * 
+ * - Determines the winner of the game
+ * - Returns the result
+ * 
+ * @param {string} humanChoice 
+ * @param {string} computerChoice 
+ * @returns 
+ */
 const determineWinner = (humanChoice, computerChoice ) => {
     let result;
     humanChoice = humanChoice.toLowerCase();
 
 
-    // logic
-    // tie
+    // logic to determine winner
+
+    // if humanChoice is the same as computerChoice, it's a tie
     if (humanChoice === computerChoice) {
         result = 0;
     }
     else if(humanChoice == "rock") { // if humanChoice is rock
-        if (computerChoice == "scissors") {
-            result = 1;
-        }
-        else {
-            result = 2;
-        }
+        if (computerChoice == "scissors") result = 1; // human wins
+        else result = 2; // computer wins
     }
     else if(humanChoice == "paper") { // if humanChoice is paper
-        if (computerChoice == "rock") {
-            result = 1;
-        }
-        else {
-            result = 2;
-        }
+        if (computerChoice == "rock") result = 1; // human wins
+        else result = 2; // computer wins
     }
     else{// if humanChoice is scissors
-        if (computerChoice == "paper") {
-            result = 1;
-        }
-        else {
-            result = 2;
-        }
+        if (computerChoice == "paper") result = 1; // human wins
+        else result = 2; // computer wins
     }
 
     // return  0 - tie, 1 - human, 2 - computer
     return result;
 }
 
+/**
+ * displayWinner
+ * 
+ * - Displays the winner of the game
+ * 
+ * @param {int} result 
+ */
 const displayWinner = (result) => { 
-    if (result == 0) {
-        console.log("It's a tie!");
-    }
-    else if (result == 1) {
-        console.log("You win!");
-    }
-    else {
-        console.log("Computer wins!");
-    }
+    if (result == 0) console.log("It's a tie!");
+    else if (result == 1) console.log("You win!");
+    else console.log("Computer wins!");
 }
 
+/**
+ * displayUltimateWinner
+ * - Displays the ultimate winner of the game
+ * 
+ * @param {int} humanScore 
+ * @param {int} computerScore 
+ */
 const displayUltimateWinner = (humanScore, computerScore) =>{
-    if (humanScore > computerScore) {
-        console.log("You are the ultimate winner!");
-    }
-    else {
-        console.log("Computer is the ultimate winner!");
-    }
+    if (humanScore > computerScore) console.log("You are the ultimate winner!");
+    else console.log("Computer is the ultimate winner!");
 }
 
+/**
+ * displayScore
+ * - Displays the current score of the game
+ * 
+ * @param {int} humanScore 
+ * @param {int} computerScore 
+ */
 const displayScore = (humanScore, computerScore) => {
     console.log("Human Score: " + humanScore);
     console.log("Computer Score: " + computerScore);
 }
 
+/**
+ * playRound
+ * 
+ * - Plays a round of the game
+ * - Returns the winner of the round
+ * -  0 - tie, 1 - human, 2 - computer
+ * 
+ * @returns {int} winner
+ * 
+ */
 const playRound = () => {
 
     const humanChoice = getHumanChoice();
@@ -119,6 +157,14 @@ const playRound = () => {
     return winner;
 }
 
+/**
+ * playGame
+ * 
+ * - Plays the game until a player reaches 5 points
+ * - Displays the ultimate winner of the game
+ * - Displays the score of the game
+ * 
+ */
 const playGame = () => {
     
     let humanScore = 0;
@@ -127,12 +173,8 @@ const playGame = () => {
     
     do{
         winner = playRound();
-        if (winner == 1) {
-            humanScore++;
-        }
-        else if (winner == 2) {
-            computerScore++;
-        }
+        if (winner == 1) humanScore++;
+        else if (winner == 2) computerScore++;
 
         displayWinner(winner);
         displayScore(humanScore, computerScore);
