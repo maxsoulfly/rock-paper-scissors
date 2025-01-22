@@ -11,14 +11,10 @@ console.log("Hi There!");
 
 
 const getHumanChoice = () => {
-    let humanChoice = prompt('Rock, Paper, or Scissors? Press q or quit to exit.');
+    let humanChoice = prompt('Rock, Paper, or Scissors?');
 
     // validate humanChoice
     switch(humanChoice.toLowerCase()) {
-        case 'quit':
-        case 'q':
-            humanChoice = 'quit';
-            break;
         case 'rock':
         case 'r':
             humanChoice = 'rock';
@@ -116,7 +112,6 @@ const displayScore = (humanScore, computerScore) => {
 const playRound = () => {
 
     const humanChoice = getHumanChoice();
-    if (humanChoice === 'quit') break;
     const computerChoice = getComputerChoice();
 
     const winner = determineWinner(humanChoice, computerChoice);
