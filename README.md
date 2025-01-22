@@ -21,16 +21,19 @@ This project is a web-based version of the classic game "Rock Paper Scissors" wh
     - Rock beats Scissors
     - Scissors beats Paper
     - Paper beats Rock
+4. The first player to score 5 victories is the ultimate winner!
 
 ## Technologies Used
 
+- JavaScript
+TO DO:
 - HTML
 - CSS
-- JavaScript
 
 ## Skills Demonstrated
 
+- Basic Game Development
+- JavaScript Logic
+TO DO:
 - DOM Manipulation
 - Event Handling
-- JavaScript Logic
-- Basic Game Development
