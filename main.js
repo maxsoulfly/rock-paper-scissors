@@ -124,6 +124,7 @@ const playGame = () => {
     let humanScore = 0;
     let computerScore = 0;
     let winner;
+    
     do{
         winner = playRound();
         if (winner == 1) {
