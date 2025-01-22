@@ -26,14 +26,14 @@ This project is a web-based version of the classic game "Rock Paper Scissors" wh
 ## Technologies Used
 
 - JavaScript
-TO DO:
-- HTML
-- CSS
+- TO DO:
+    - HTML
+    - CSS
 
 ## Skills Demonstrated
 
 - Basic Game Development
 - JavaScript Logic
-TO DO:
-- DOM Manipulation
-- Event Handling
+- TO DO:
+    - DOM Manipulation
+    - Event Handling
