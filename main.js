@@ -9,11 +9,32 @@ console.log("Hi There!");
     - Display winner
 */
 
-let humanScore = 0;
-let computerScore = 0;
 
 const getHumanChoice = () => {
-    const humanChoice = prompt('Rock, Paper, or Scissors?');
+    let humanChoice = prompt('Rock, Paper, or Scissors? Press q or quit to exit.');
+
+    // validate humanChoice
+    switch(humanChoice.toLowerCase()) {
+        case 'quit':
+        case 'q':
+            humanChoice = 'quit';
+            break;
+        case 'rock':
+        case 'r':
+            humanChoice = 'rock';
+            break;
+        case 'paper':
+        case 'p': 
+            humanChoice = 'paper'; 
+            break;
+        case 'scissors':
+        case 's':
+            humanChoice = 'scissors'; 
+            break;
+        default:
+            console.log("Invalid choice. Please choose Rock, Paper, or Scissors.");
+            humanChoice = getHumanChoice();
+    }
 
     console.log("You chose: " + humanChoice);
     return humanChoice;
@@ -54,7 +75,7 @@ const determineWinner = (humanChoice, computerChoice ) => {
         }
     }
     else{// if humanChoice is scissors
-        if (computerChoice == "pepper") {
+        if (computerChoice == "paper") {
             result = 1;
         }
         else {
@@ -78,14 +99,51 @@ const displayWinner = (result) => {
     }
 }
 
+const displayUltimateWinner = (humanScore, computerScore) =>{
+    if (humanScore > computerScore) {
+        console.log("You are the ultimate winner!");
+    }
+    else {
+        console.log("Computer is the ultimate winner!");
+    }
+}
+
+const displayScore = (humanScore, computerScore) => {
+    console.log("Human Score: " + humanScore);
+    console.log("Computer Score: " + computerScore);
+}
+
 const playRound = () => {
+
     const humanChoice = getHumanChoice();
+    if (humanChoice === 'quit') break;
     const computerChoice = getComputerChoice();
 
     const winner = determineWinner(humanChoice, computerChoice);
 
-    displayWinner(winner);
+    return winner;
 }
 
-playRound();
+const playGame = () => {
+    
+    let humanScore = 0;
+    let computerScore = 0;
+    let winner;
+    do{
+        winner = playRound();
+        if (winner == 1) {
+            humanScore++;
+        }
+        else if (winner == 2) {
+            computerScore++;
+        }
 
+        displayWinner(winner);
+        displayScore(humanScore, computerScore);
+    }while(humanScore < 5 && computerScore < 5);
+    
+    displayUltimateWinner(humanScore, computerScore);
+    displayScore(humanScore, computerScore);
+}
+
+playGame();
