@@ -23,11 +23,15 @@ This project is a web-based version of the classic game "Rock Paper Scissors" wh
     - Paper beats Rock
 4. The first player to score 5 victories is the ultimate winner!
 
+
+## Live Demo
+[View Live Demo](https://maxsoulfly.github.io/rock-paper-scissors/) 
+
+
 ## Technologies Used
 
 - JavaScript
-- TO DO:
-    - CSS
+- CSS
 
 ## Skills Demonstrated
 
