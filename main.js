@@ -103,17 +103,33 @@ const displayUltimateWinner = (humanScore, computerScore) =>{
     const ultimateWinnerTitle = createElement('h1', '', 'ultimateWinner');
     const display = document.querySelector('#container');
     const restartButton = createElement('button', 'Start Again!', '');
+    restartButton.classList.add('restartButton');
     restartButton.addEventListener('click', createUI);
 
 
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             ultimateWinnerTitle.textContent = "You are the Ultimate Winner!";
-            ultimateWinnerTitle.style.color = "green";
+            ultimateWinnerTitle.style.color = "#008000";
+
+            restartButton.style.background = "#008000";
+            restartButton.addEventListener('mouseover', () => {
+                restartButton.style.background = "#228B22";
+            });
+            restartButton.addEventListener('mouseout', () => {
+                restartButton.style.background = "#008000";
+            });
         }
         else {
             ultimateWinnerTitle.textContent = "Computer is the Ultimate Winner!";
-            ultimateWinnerTitle.style.color = "red";
+            ultimateWinnerTitle.style.color = "#FF0000";
+            restartButton.style.background = "#FF0000";
+            restartButton.addEventListener('mouseover', () => {
+                restartButton.style.background = "#DC143C";
+            });
+            restartButton.addEventListener('mouseout', () => {
+                restartButton.style.background = "#FF0000";
+            });
         }
 
         // Display the final score and reset
