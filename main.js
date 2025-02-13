@@ -42,14 +42,16 @@ const getComputerChoice = () => {
  * 
  * @param {string} humanChoice 
  * @param {string} computerChoice 
- * @returns 
+ * @returns  0 - tie, 1 - human, 2 - computer
  */
 const determineWinner = (humanChoice, computerChoice ) => {
     let result;
-    // humanChoice = humanChoice.toLowerCase();
 
 
     // logic to determine winner
+
+    // convert humanChoice to lowercase
+    humanChoice = humanChoice.toLowerCase();
 
     // if humanChoice is the same as computerChoice, it's a tie
     if (humanChoice === computerChoice) {
